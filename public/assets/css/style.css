@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --c-dark: #252525;
+    --c-brand: #00976a;
+    --c-brand-light: #8bfbff;
+    --c-body: #3f3f3f;
+    --font-base: "Poppins", sans-serif;
+    --box-shadow: 0px, 15px, 25px, rgba(0, 0, 0, 0.8);
+    --transition: all 0.5s ease;
+}
+
+body {
+    font-family: var(--font-base);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: 600;
+    font-family: var(--font-base);
+}
+
+.section {
+    position: relative;
+    scroll-margin-top: 100px;
+    /* biar offset pas */
+    min-height: 100vh !important;
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+/* Navbar */
+.navbar-nav .nav-link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400 !important;
+    color: var(--c-dark);
+}
+
+.nav-link.active {
+    color: var(--c-brand) !important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: var(--c-brand) !important;
+    transform: translateY(-4px) !important;
+    transition: all 0.1s ease-in-out !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--c-brand);
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-toggler:hover {
+}
+
+/* BTN */
+.btn {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    border-radius: 0 !important;
+    padding: 10px 24px !important;
+    background-color: var(--c-brand) !important;
+    border: var(--c-brand-light) !important;
+    box-shadow: 0 4px 10px var(--c-brand-light) !important;
+}
+
+.btn-brand {
+    background-color: var(--c-brand) !important;
+    border-color: var(--c-brand) !important;
+    color: white !important;
+}
+
+.btn:hover {
+    color: var(--c-brand) !important;
+    background-color: white !important;
+    box-shadow: 0 4px 10px var(--c-brand) !important;
+    /* Tambahkan offset, blur, dan spread */
+    border-color: var(--c-brand-light) !important;
+    transition: var(--transition) !important;
+}
+
+/* Jumbotron */
+#jumbotron {
+    background: #004c95;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 76, 149, 1) 17%,
+        rgba(0, 95, 175, 1) 43%,
+        rgba(48, 155, 237, 1) 74%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+/* Cara Kerja */
+#carakerja {
+    font-family: var(--font-base);
+}
+
+.carakerja {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card h2 {
+    font-size: 60px !important;
+    transform: translateX(-100%) !important;
+}
+
+.card img {
+    transform: translateX(50%);
+}
+
+/* Formulir */
+#formulir {
+}
+
+/* FAQ */
+#faq {
+}
+
+/* Footer */
+#footer {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(48, 155, 237, 1) 63%,
+        rgba(0, 95, 175, 1) 87%,
+        rgba(0, 76, 149, 1) 100%
+    );
+}
+
+/* Section Title */
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px auto 24px auto;
+}
+
+/* Ukuran Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .jumbotron h1,
+    .jumbotron h5 {
+        justify-content: center;
+        display: flex;
+        /* Tambahin ini biar justify-content jalan */
+    }
+}
+
+/* Ukuran Mobile */
+@media (max-width: 767px) {
+    .jumbotron h1,
+    .jumbotron h5 {
+        text-align: center;
+    }
+}
