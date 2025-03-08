@@ -98,55 +98,57 @@
         </div>
         <div class="container mt-5">
             <div class="card mx-auto p-4 shadow" style="max-width: 500px; width: 90%">
-                <form>
+                @if (session('error'))
+                    <div class="alert alert-danger text-center">{{ session('error') }}</div>
+                @endif
+                <form action="{{ route('pengaduan.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-1">
-                        <label for="pelapor" class="form-label">Pelapor*</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama Pelapor" />
+                        <label for="nama" class="form-label">Pelapor*</label>
+                        <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Pelapor"
+                            required />
                     </div>
                     <div class="mb-1">
-                        <label for="nomortelepon" class="form-label"></label>
-                        <input type="text" class="form-control" id="nomortelepon"
+                        <input type="text" name="nomortelepon" class="form-control" id="nomortelepon"
                             placeholder="Nomor Telepon (Opsional)" />
                     </div>
                     <div class="mb-1">
-                        <label for="email" class="form-label"></label>
-                        <input type="text" class="form-control" id="email" placeholder="Email (Wajib diisi)" />
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="Email (Wajib diisi)" required />
                     </div>
-                    <div class="mb-3 pt-5 position-relative">
-                        <label for="jenisLaporan" class="form-label">Jenis Pelanggaran</label>
-                        <div class="position-relative">
-                            <select class="form-select" id="jenispelanggaran" aria-label="Pilih jenis pelanggaran">
-                                <option value="" selected>Pilih jenis pelanggaran</option>
-                                <option value="Korupsi">Korupsi</option>
-                                <option value="Benturan Kepentingan">Benturan Kepentingan</option>
-                                <option value="Pelecehan Seksual">Pelecehan Seksual</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-1 pt-2">
-                        <input type="text" class="form-control" id="indikasi" placeholder="Indikasi Pelanggaran" />
+                    <div class="mb-3">
+                        <label for="jenispelanggaran" class="form-label">Jenis Pelanggaran</label>
+                        <select name="jenispelanggaran" class="form-select" id="jenispelanggaran" required>
+                            <option value="" selected>Pilih jenis pelanggaran</option>
+                            <option value="Korupsi">Korupsi</option>
+                            <option value="Benturan Kepentingan">Benturan Kepentingan</option>
+                            <option value="Pelecehan Seksual">Pelecehan Seksual</option>
+                        </select>
                     </div>
                     <div class="mb-1">
-                        <label for="tempat" class="form-label"></label>
-                        <input type="tempat" class="form-control" id="tempat" placeholder="Tempat Kejadian" />
+                        <input type="text" name="indikasi" class="form-control" id="indikasi"
+                            placeholder="Indikasi Pelanggaran" required />
                     </div>
-                    <div class="mb-1 pt-5">
+                    <div class="mb-1">
+                        <input type="text" name="tempat" class="form-control" id="tempat"
+                            placeholder="Tempat Kejadian" required />
+                    </div>
+                    <div class="mb-1">
                         <label for="waktu" class="form-label">Waktu Kejadian</label>
-                        <input type="date" class="form-control" id="waktu" placeholder="Tanggal Kejadian"
-                            onclick="this.showPicker()" />
+                        <input type="date" name="waktu" class="form-control" id="waktu" required />
                     </div>
                     <div class="mb-1">
-                        <label for="terlapor" class="form-label"></label>
-                        <input type="terlapor" class="form-control" id="terlapor" placeholder="Nama Terlapor" />
+                        <input type="text" name="terlapor" class="form-control" id="terlapor"
+                            placeholder="Nama Terlapor" required />
                     </div>
                     <div class="mb-1">
-                        <label for="Kronologi" class="form-label"></label>
-                        <textarea class="form-control" id="saran" rows="5" placeholder="Kronologis Kejadian"></textarea>
+                        <label for="kronologi" class="form-label">Kronologi Kejadian*</label>
+                        <textarea name="kronologi" class="form-control" id="kronologi" rows="5" placeholder="Ceritakan kronologi kejadian" required></textarea>
                     </div>
-                    <div class="mb-3 pt-5">
+                    
+                    <div class="mb-3">
                         <label for="attachment" class="form-label">Lampirkan Bukti (Opsional)</label>
-                        <input class="form-control" type="file" id="attachment" />
+                        <input class="form-control" type="file" name="attachment" id="attachment" />
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Kirim</button>
                 </form>

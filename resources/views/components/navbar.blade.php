@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary p-2 px-5 rounded-4" role="button" href="login"><svg
+                    <a class="btn btn-primary p-2 px-5 rounded-4" role="button" href="{{ route('login') }}"><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
